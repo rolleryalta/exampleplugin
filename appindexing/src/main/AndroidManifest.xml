@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="chin.chin.exampleplugin">
+
+    <application>
+        <activity
+            android:name="chin.chin.exampleplugin.LandingActivity"
+            android:label="Masha Doctor"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Holo.NoActionBar">
+            <intent-filter android:label="Masha Doctor" android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://indigokidsgames.com/portfolio-items/masha_doctor" -->
+                <data android:scheme="http"
+                    android:host="indigokidsgames.com"
+                    android:pathPrefix="/portfolio-items/masha_doctor" />
+            </intent-filter>
+            <intent-filter android:label="Masha Doctor" android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "android-app://com.indigokids.mimdoctor” -->
+                <data android:scheme="android-app"
+                    android:host="com.indigokids.mimdoctor" />
+            </intent-filter>
+        </activity>
+
+        <service android:name="chin.chin.exampleplugin.AppIndexingService"
+            android:exported="true"
+            android:permission="com.google.android.gms.permission.APPINDEXING">
+            <intent-filter>
+                <action android:name="com.google.firebase.appindexing.UPDATE_INDEX" />
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>
